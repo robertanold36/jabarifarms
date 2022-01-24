@@ -1,0 +1,12 @@
+export interface VendorPayload{
+    vendorId: number;
+    registrationNumber: string;
+    name: string;
+    phoneNumber: string;
+    dateOfBirth: Date;
+    address: string;
+    idNumber: string;
+    createdDate: Date;
+    isEligible: boolean;
+    commission: number;
+}
