@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
           this.toastr.success('login succesfully');
         }
       }, err => {
-        if (err.status==404) {
+        if (err.status==404 || err.status==403) {
           this.isError = true;
           this.toastr.error('Username or password is incorrect');
         } else {

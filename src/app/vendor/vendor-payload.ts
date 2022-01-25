@@ -7,6 +7,5 @@ export interface VendorPayload{
     address: string;
     idNumber: string;
     createdDate: Date;
-    isEligible: boolean;
     commission: number;
 }

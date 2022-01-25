@@ -7,6 +7,7 @@ import { VendorContractPayload } from '../vendor-contract-payload';
 import { formatDate } from "@angular/common";
 import { PurchaseComponent } from '../purchase/purchase.component';
 import { Router } from '@angular/router';
+import { VendorService } from '../service/vendor.service';
 
 
 @Component({
@@ -28,11 +29,12 @@ export class VendorContractListComponent implements AfterViewInit {
     return formatDate(date, this.format, this.locale)
   }
 
-  constructor(public dialog: MatDialog, private router: Router) {
+  constructor(public dialog: MatDialog, private router: Router,private vendorService:VendorService) {
     //console.log(this.router.getCurrentNavigation().extras.state['data'])
     this.dataSource = new MatTableDataSource<VendorContractPayload>(VendorContractListPayload)
   }
   ngAfterViewInit(): void {
+  
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort
   }
@@ -65,7 +67,9 @@ export const VendorContractListPayload: VendorContractPayload[] = [
     createdDate: new Date(),
     category: "SPC",
     amount: 400000,
-    amountPerKG: 200
+    amountPerKG: 200,
+    paymentAccount: "",
+    paymentMethod:""
   },
   {
     contractId: 1,
@@ -74,7 +78,9 @@ export const VendorContractListPayload: VendorContractPayload[] = [
     createdDate: new Date(),
     category: "WCN",
     amount: 4200000,
-    amountPerKG: 200
+    amountPerKG: 200,
+    paymentAccount: "",
+    paymentMethod:""
   },
   {
     contractId: 1,
@@ -83,7 +89,9 @@ export const VendorContractListPayload: VendorContractPayload[] = [
     createdDate: new Date(),
     category: "SPN",
     amount: 900000,
-    amountPerKG: 200
+    amountPerKG: 200,
+    paymentAccount: "",
+    paymentMethod:""
   },
   {
     contractId: 1,
@@ -92,7 +100,9 @@ export const VendorContractListPayload: VendorContractPayload[] = [
     createdDate: new Date(),
     category: "WCN",
     amount: 700000,
-    amountPerKG: 200
+    amountPerKG: 200,
+    paymentAccount: "",
+    paymentMethod:""
   },
   {
     contractId: 1,
@@ -101,7 +111,9 @@ export const VendorContractListPayload: VendorContractPayload[] = [
     createdDate: new Date(),
     category: "WCN",
     amount: 400000,
-    amountPerKG: 200
+    amountPerKG: 200,
+    paymentAccount: "",
+    paymentMethod:""
   },
   {
     contractId: 1,
@@ -110,7 +122,9 @@ export const VendorContractListPayload: VendorContractPayload[] = [
     createdDate: new Date(),
     category: "SPN",
     amount: 400000,
-    amountPerKG: 200
+    amountPerKG: 200,
+    paymentAccount: "",
+    paymentMethod:""
   },
   {
     contractId: 1,
@@ -119,7 +133,9 @@ export const VendorContractListPayload: VendorContractPayload[] = [
     createdDate: new Date(),
     category: "WCN",
     amount: 400000,
-    amountPerKG: 200
+    amountPerKG: 200,
+    paymentAccount: "",
+    paymentMethod:""
   },
   {
     contractId: 1,
@@ -128,7 +144,9 @@ export const VendorContractListPayload: VendorContractPayload[] = [
     createdDate: new Date(),
     category: "SPN",
     amount: 600000,
-    amountPerKG: 200
+    amountPerKG: 200,
+    paymentAccount: "",
+    paymentMethod:""
   },
   {
     contractId: 1,
@@ -137,7 +155,9 @@ export const VendorContractListPayload: VendorContractPayload[] = [
     createdDate: new Date(),
     category: "WCN",
     amount: 400000,
-    amountPerKG: 200
+    amountPerKG: 200,
+    paymentAccount: "",
+    paymentMethod:""
   },
   {
     contractId: 1,
@@ -146,7 +166,9 @@ export const VendorContractListPayload: VendorContractPayload[] = [
     createdDate: new Date(),
     category: "SPN",
     amount: 500000,
-    amountPerKG: 200
+    amountPerKG: 200,
+    paymentAccount: "",
+    paymentMethod:""
   },
 
 ]

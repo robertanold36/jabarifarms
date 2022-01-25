@@ -1,11 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import { LocalStorageService } from 'ngx-webstorage';
 import { map, Observable, tap } from 'rxjs';
 import { LoginResponse } from '../login/login-response.payload';
-import { LoginComponent } from '../login/login.component';
 import { LoginRequestPayload } from '../login/login.request.payload';
 
 @Injectable({
@@ -16,13 +13,13 @@ export class AuthService {
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() username: EventEmitter<String> = new EventEmitter();
 
+  url:String="http://localhost:8080/jabari/auth"
+
   constructor(private http: HttpClient,
-    private localStorage: LocalStorageService,
-    private router: Router,
-    private toastr: ToastrService) { }
+    private localStorage: LocalStorageService) { }
 
   login(loginRequest: LoginRequestPayload): Observable<boolean> {
-    return this.http.post<LoginResponse>('http://localhost:8080/jabari/auth/login', loginRequest).pipe(map(data => {
+    return this.http.post<LoginResponse>(this.url+'/login', loginRequest).pipe(map(data => {
       this.localStorage.store('authenticationToken', data.token);
       this.localStorage.store('expiresAt', data.expiresAt);
       this.localStorage.store('refreshToken', data.refreshToken);
@@ -43,7 +40,7 @@ export class AuthService {
 
     };
 
-    return this.http.post<LoginResponse>('http://localhost:8080/jabari/auth/refresh/token'
+    return this.http.post<LoginResponse>(this.url+'/refresh/token'
       , refreshTokenPayload).pipe(tap(response => {
         console.log(response)
         this.localStorage.store('authenticationToken', response.token);

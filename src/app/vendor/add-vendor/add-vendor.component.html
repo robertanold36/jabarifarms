@@ -4,29 +4,29 @@
     <div class="card mb-5">
         <article class="card-body">
             <h6 class="card-title mb-4 mt-1">Make Quick Registration</h6>
-            <form>
+            <form [formGroup]="addVendorForm" (ngSubmit)="addVendor()" class="form">
                 <div class="form-group">
                     <label>Full name</label>
-                    <input name="name" class="form-control" placeholder="28-04-2000" required type="text">
+                    <input formControlName="name" class="form-control" placeholder="28-04-2000" required type="text">
                 </div> <!-- form-group// -->
                 <div class="form-group  mt-3">
                     <label>Phone number</label>
-                    <input name="phoneNumber" class="form-control" placeholder="+255 650 555 789" type="text">
+                    <input formControlName="phoneNumber" class="form-control" placeholder="+255 650 555 789" type="text">
                 </div> <!-- form-group// -->
 
                 <div class="form-group  mt-3">
                     <label>Natioanl ID, driver license</label>
-                    <input name="IdNumber" class="form-control" placeholder="199308999400" type="text">
+                    <input formControlName="idNumber" class="form-control" placeholder="199308999400" type="text">
                 </div> <!-- form-group// -->
 
                 <div class="form-group mt-3">
                     <label>Address</label>
-                    <input class="form-control" placeholder="Dar es salaam,Tanzania" type="text">
+                    <input class="form-control" formControlName="address" placeholder="Dar es salaam,Tanzania" type="text">
                 </div> <!-- form-group// -->
 
                 <div class="form-group  mt-3">
                     <label>Date of Birth</label>
-                    <input id="requestdate" type="date" class="form-control" name="requestdate" />
+                    <input id="requestdate" type="date" class="form-control" formControlName="dob" />
                 </div> <!-- form-group// -->
 
                 <input type="submit" class="btn mt-3 w-50" style="background-color: crimson;" value="SAVE">

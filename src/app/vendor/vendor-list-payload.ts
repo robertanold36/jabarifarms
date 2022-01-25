@@ -9,7 +9,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Curtbert",
         phoneNumber:"0678936478"
     },
@@ -21,7 +20,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -33,7 +31,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -45,7 +42,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -57,7 +53,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -69,7 +64,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -81,7 +75,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -93,7 +86,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -105,7 +97,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -117,7 +108,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -129,7 +119,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -141,7 +130,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -153,7 +141,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -165,7 +152,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -177,7 +163,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -189,7 +174,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -201,7 +185,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -213,7 +196,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -225,7 +207,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -237,7 +218,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -249,7 +229,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -261,7 +240,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -273,7 +251,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -285,7 +262,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -297,7 +273,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -309,7 +284,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     },
@@ -321,7 +295,6 @@ export const VendorListPayload: VendorPayload[] = [
         createdDate: new Date(),
         dateOfBirth: new Date(),
         idNumber: "123456",
-        isEligible: true,
         name: "Robert Anold",
         phoneNumber:"0678936478"
     }
