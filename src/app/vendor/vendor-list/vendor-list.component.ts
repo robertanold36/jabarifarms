@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LocalStorageService } from 'ngx-webstorage';
 import { AddVendorComponent } from '../add-vendor/add-vendor.component';
 import { VendorService } from '../service/vendor.service';
 import { VendorPayload } from '../vendor-payload';
@@ -24,7 +25,10 @@ export class VendorListComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-  constructor(public dialog: MatDialog, private router: Router, private vendorService: VendorService,private toastr:ToastrService) {
+  constructor(public dialog: MatDialog,
+    private router: Router,
+    private vendorService: VendorService,
+    private toastr: ToastrService,private localStorage:LocalStorageService) {
     
     this.vendorService.getAllVendors().subscribe(data => {
       if (data) {
@@ -58,10 +62,18 @@ export class VendorListComponent implements OnInit {
       height: '90%',
       width:'50%'
     });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.ngOnInit()
+    })
   }
 
   navigateToVendorContractList(vendorPayload: VendorPayload) {
-    this.router.navigate(['vendor-contract-list'], { state: {data:vendorPayload} })
+    this.localStorage.store('vendorId-contract', vendorPayload.vendorId);
+    this.localStorage.store('registrationNumber-contract', vendorPayload.registrationNumber);
+    this.localStorage.store('name-contract', vendorPayload.name);
+    const vendorId=vendorPayload.vendorId
+    this.router.navigate(['vendor-contract-list',vendorId])
   }
 }
 

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
 import { faChartBar } from '@fortawesome/free-solid-svg-icons';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
-import { AuthService } from 'src/app/auth/service/auth.service';
+
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -18,14 +19,18 @@ export class DashboardComponent implements OnInit {
   faUser = faUser
   faMoneyBill = faMoneyBill
   jabariLogo = "assets/images/jabari.png"
-  isSessionExpire:Boolean=false
+  isSessionExpire: Boolean = false
+  department:String='Packing'
 
-  constructor(private authService: AuthService,private router:Router) {
+  constructor(
+  ) {
 
-   }
+  }
+
+
 
   ngOnInit(): void {
-   
+
   }
 
 }

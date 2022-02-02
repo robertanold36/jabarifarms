@@ -1,0 +1,11 @@
+<div style="display: block; width: 700px; height: 400px; margin: 52px;">
+    <h3><b>Recently {{department}} Records</b></h3>
+    <canvas baseChart
+            [datasets]="barChartDataList"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [type]="'bar'"
+           >
+    </canvas>
+  </div>

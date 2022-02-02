@@ -1,44 +1,37 @@
 <div class="container h-100">
-    <br>
-    <p class="text-center">Quick Access</p>
-    <hr>
-    <div class="card mb-5 w-75">
+    <h3>Add Record</h3>
+
+    <div class="card mb-5">
         <article class="card-body">
-            <h6 class="card-title mb-4 mt-1">Make Quick purchase</h6>
-            <form>
+            <h6 class="card-title mb-4 mt-1">Make Quick Recording</h6>
+            <form  class="form" [formGroup]="purchaseFormGroup" (ngSubmit)="saveRecord()">
                 <div class="form-group">
-                    <label>Registration number</label>
-                    <input name="" class="form-control" placeholder="28-04-2000" required type="text">
+                    <label>Total Wholes (KG)</label>
+                    <input formControlName="totalWholes" class="form-control" placeholder="25.9" required type="number">
                 </div> <!-- form-group// -->
                 <div class="form-group  mt-3">
-                    <label>Amount</label>
-                    <input class="form-control" placeholder="30000" type="number">
+                    <label>Total Pieces (KG)</label>
+                    <input formControlName="totalPieces" class="form-control" placeholder="24.6" type="number">
                 </div> <!-- form-group// -->
 
                 <div class="form-group  mt-3">
-                    <label>Amount per KG</label>
-                    <input class="form-control" placeholder="200" type="number">
+                    <label>Moisture Percent (%)</label>
+                    <input formControlName="moisturePercent" class="form-control" placeholder="3.6" type="number">
+                </div> <!-- form-group// -->
+
+                <div class="form-group  mt-3">
+                    <label>Price per KG (Wholes)</label>
+                    <input  formControlName="pricePerKiloWholes" class="form-control" placeholder="3,000,000" type="number" />
                 </div> <!-- form-group// -->
 
                 <div class="form-group mt-3">
-                    <label>Commission Amount per KG</label>
-                    <input class="form-control" placeholder="300" type="number">
+                    <label>Price per KG (Pieces)</label>
+                    <input class="form-control" formControlName="pricePerKiloPieces" placeholder="3,000,000" type="number">
                 </div> <!-- form-group// -->
 
-                <div class="form-group  mt-3">
-                    <label>Category</label>
-                    <select class="form-control" placeholder="30000" type="">
-                        <option value="white">White cashew nut</option>
-                        <option value="semi">Semi processed Cashew nut</option>
-                        <option value="both">Both</option>
-                    </select>
-                </div> <!-- form-group// -->
-
-                <input type="submit" class="btn mt-3 w-50" style="background-color: crimson;" value="PAY">
+                <input type="submit" class="btn mt-3 w-50" style="background-color: crimson;" value="SAVE">
                 <!-- form-group// -->
             </form>
         </article>
     </div> <!-- card.// -->
-
 </div>
-<!--container end.//-->

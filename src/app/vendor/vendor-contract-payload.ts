@@ -1,6 +1,6 @@
 export interface VendorContractPayload{
     contractId: number;
-    registrationNumber: String;
+    vendorId: number;
     amount: number;
     amountPerKG: number;
     commissionAmountPerKG: number;

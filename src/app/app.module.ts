@@ -30,6 +30,11 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { VendorContractListComponent } from './vendor/vendor-contract-list/vendor-contract-list.component';
 import { VendorContractComponent } from './vendor/vendor-contract/vendor-contract.component';
+import { StockComponent } from './stock/stock/stock.component';
+import { StockRecordComponent } from './stock/stock-record/stock-record.component';
+import { NgChartsModule } from 'ng2-charts';
+import { StockCategoryComponent } from './stock/stock-category/stock-category.component';
+import { CanvasRecordComponent } from './stock/canvas-record/canvas-record.component';
 
 
 
@@ -46,6 +51,10 @@ import { VendorContractComponent } from './vendor/vendor-contract/vendor-contrac
     VendorPurchaseRecordComponent,
     VendorContractListComponent,
     VendorContractComponent,
+    StockComponent,
+    StockRecordComponent,
+    StockCategoryComponent,
+    CanvasRecordComponent
   ],
 
   imports: [
@@ -67,7 +76,8 @@ import { VendorContractComponent } from './vendor/vendor-contract/vendor-contrac
     MatSidenavModule,
     MatDialogModule,
     MatButtonModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    NgChartsModule
   ],
   providers: [
     {

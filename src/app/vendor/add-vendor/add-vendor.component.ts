@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
 import { VendorService } from '../service/vendor.service';
 import { VendorPayload } from '../vendor-payload';
@@ -13,9 +14,8 @@ export class AddVendorComponent implements OnInit {
 
   addVendorForm!: FormGroup;
   vendorPayload!: VendorPayload;
-  isError!: boolean;
 
-  constructor(private toastr: ToastrService, private vendorService: VendorService) {
+  constructor(private toastr: ToastrService, private vendorService: VendorService,public dialogRef:MatDialogRef<AddVendorComponent>) {
     this.vendorPayload = {
       vendorId: 0,
       name: "",
@@ -44,8 +44,6 @@ export class AddVendorComponent implements OnInit {
     return this.addVendorForm.controls;
   }
 
-
-
   addVendor() {
     this.vendorPayload.name = this.addVendorForm.get('name')?.value;
     this.vendorPayload.phoneNumber = this.addVendorForm.get('phoneNumber')?.value;
@@ -59,13 +57,18 @@ export class AddVendorComponent implements OnInit {
     } else {
       this.vendorService.registerVendor(this.vendorPayload).subscribe(data => {
         if (data) {
-            this.toastr.success('Vendor registered successfully')
+          this.toastr.success('Vendor registered successfully')
+          this.dialogRef.close()
         }
       }, err => {
         if (err.status == 409) {
           this.toastr.error('Vendor with number ' + this.f['idNumber'].value + " Exist")
+          this.dialogRef.close()
+
         } else {
           this.toastr.error('Internal server error')
+          this.dialogRef.close()
+
         }
       })
     }
