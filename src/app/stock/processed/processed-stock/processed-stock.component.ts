@@ -1,19 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from 'ngx-toastr';
-import { StockService } from '../service/stock.service';
-import { StockPayload } from '../stock.payload';
+import { StockService } from '../../service/stock.service';
+import { StockComponent } from '../../white-stock/stock/stock.component';
+import { StockProcessedRcn } from '../stock.processed.rcn';
 
 @Component({
-  selector: 'app-stock',
-  templateUrl: './stock.component.html',
-  styleUrls: ['./stock.component.css']
+  selector: 'app-processed-stock',
+  templateUrl: './processed-stock.component.html',
+  styleUrls: ['./processed-stock.component.css']
 })
-export class StockComponent implements OnInit {
+export class ProcessedStockComponent implements OnInit {
 
   stockRecordingForm!: FormGroup
-  stockPayload!:StockPayload
+  stockPayload!:StockProcessedRcn
 
   constructor(private toastr: ToastrService,
     private stockService: StockService,
@@ -21,7 +22,8 @@ export class StockComponent implements OnInit {
     ) {
 
     this.stockPayload = {
-      whiteStockId:0,
+      stockId: 0,
+      totalProcessed:0,
       createdDate: 0,
       department: '',
       totalPieces: 0,
@@ -37,7 +39,8 @@ export class StockComponent implements OnInit {
       totalPieces: new FormControl('', Validators.required),
       totalWholes: new FormControl('', Validators.required),
       department: new FormControl('', Validators.required),
-      lot:new FormControl('',Validators.required)
+      lot: new FormControl('', Validators.required),
+      totalProcessed:new FormControl('',Validators.required)
 
     })
   }
@@ -56,9 +59,10 @@ export class StockComponent implements OnInit {
       this.stockPayload.department = this.stockRecordingForm.get('department')?.value
       this.stockPayload.totalWholes=this.stockRecordingForm.get('totalWholes')?.value
       this.stockPayload.totalPieces = this.stockRecordingForm.get('totalPieces')?.value
+      this.stockPayload.totalProcessed = this.stockRecordingForm.get('totalProcessed')?.value
       this.stockPayload.lot=this.stockRecordingForm.get('lot')?.value
 
-      this.stockService.dailyWhiteStockRecording(this.stockPayload).subscribe(data => {
+      this.stockService.dailyProcessedStockRecording(this.stockPayload).subscribe(data => {
         if (data) {
           this.toastr.success('Successfully record the information')
           this.dialogRef.close();

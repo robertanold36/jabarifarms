@@ -30,12 +30,24 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { VendorContractListComponent } from './vendor/vendor-contract-list/vendor-contract-list.component';
 import { VendorContractComponent } from './vendor/vendor-contract/vendor-contract.component';
-import { StockComponent } from './stock/stock/stock.component';
-import { StockRecordComponent } from './stock/stock-record/stock-record.component';
+import { StockRecordComponent } from './stock/white-stock/stock-record/stock-record.component';
 import { NgChartsModule } from 'ng2-charts';
-import { StockCategoryComponent } from './stock/stock-category/stock-category.component';
 import { CanvasRecordComponent } from './stock/canvas-record/canvas-record.component';
-
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { BoilingStockComponent } from './stock/rcn-stock/boiling-stock/boiling-stock.component';
+import { ProcessedStockComponent } from './stock/processed/processed-stock/processed-stock.component';
+import { RcnStockCategoryComponent } from './stock/rcn-stock/rcn-stock-category/rcn-stock-category.component';
+import { RcnStockRecordComponent } from './stock/rcn-stock/rcn-stock-record/rcn-stock-record.component';
+import { ProcessedStockCategoryComponent } from './stock/processed/processed-stock-category/processed-stock-category.component';
+import { ProcessedStockRecordComponent } from './stock/processed/processed-stock-record/processed-stock-record.component';
+import { StockCategoryRecordComponent } from './stock/white-stock/stock-category-record/stock-category-record.component';
+import { StockCategoryComponent } from './stock/white-stock/stock-category/stock-category.component';
+import { StockComponent } from './stock/white-stock/stock/stock.component';
+import { StockDashboardComponent } from './stock/stock-dashboard/stock-dashboard.component';
+import { ProcessedStockCategoryRecordComponent } from './stock/processed/processed-stock-category-record/processed-stock-category-record.component';
+import { ProcessedStockCanvansComponent } from './stock/processed/processed-stock-canvans/processed-stock-canvans.component';
+import { RcnStockCanvasComponent } from './stock/rcn-stock/rcn-stock-canvas/rcn-stock-canvas.component';
+import { RcnStockCategoryRecordComponent } from './stock/rcn-stock/rcn-stock-category-record/rcn-stock-category-record.component';
 
 
 @NgModule({
@@ -54,7 +66,19 @@ import { CanvasRecordComponent } from './stock/canvas-record/canvas-record.compo
     StockComponent,
     StockRecordComponent,
     StockCategoryComponent,
-    CanvasRecordComponent
+    CanvasRecordComponent,
+    StockCategoryRecordComponent,
+    BoilingStockComponent,
+    ProcessedStockComponent,
+    ProcessedStockCategoryComponent,
+    RcnStockCategoryComponent,
+    ProcessedStockRecordComponent,
+    RcnStockRecordComponent,
+    StockDashboardComponent,
+    ProcessedStockCategoryRecordComponent,
+    ProcessedStockCanvansComponent,
+    RcnStockCanvasComponent,
+    RcnStockCategoryRecordComponent
   ],
 
   imports: [
@@ -77,7 +101,8 @@ import { CanvasRecordComponent } from './stock/canvas-record/canvas-record.compo
     MatDialogModule,
     MatButtonModule,
     MatDatepickerModule,
-    NgChartsModule
+    NgChartsModule,
+    MatSlideToggleModule
   ],
   providers: [
     {

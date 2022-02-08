@@ -1,5 +1,6 @@
-export interface StockPayload{
-    whiteStockId: number;
+export interface StockProcessedRcn{
+    stockId: number;
+    totalProcessed: number;
     totalPieces: number;
     totalWholes: number;
     createdDate: number;

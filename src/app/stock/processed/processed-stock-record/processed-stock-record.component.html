@@ -1,0 +1,11 @@
+<div class="container mt-5">
+    <mat-slide-toggle  [(ngModel)]="isChecked" (change)="onChange()">Change View</mat-slide-toggle>
+  
+    <h3><b>Recently {{department}} Records</b></h3>
+  
+    <app-processed-stock-canvans *ngIf="!isChecked" [department]="department" (stockPayloadListEmmitter)="getStockPayloadList($event)">
+    </app-processed-stock-canvans>
+  
+    <app-processed-stock-category-record [stockPayloadListData]='stockPayloadList' *ngIf="isChecked"></app-processed-stock-category-record>
+  
+  </div>

@@ -11,7 +11,9 @@ import { StockPayload } from '../stock.payload';
 })
 export class StockRecordComponent implements AfterViewInit {
 
-  department!:String
+  department!: String
+  isChecked = false
+  stockPayloadList:Array<StockPayload>=[]
 
   constructor(private route:ActivatedRoute
     ) {
@@ -23,7 +25,10 @@ export class StockRecordComponent implements AfterViewInit {
   }
 
   getStockPayloadList(stockPayloadList: Array<StockPayload>) {
-    console.log(stockPayloadList);
+    this.stockPayloadList=stockPayloadList
   }
 
+  onChange() {
+    !this.isChecked
+  }
 }

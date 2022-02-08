@@ -27,7 +27,6 @@ export class StockCategoryComponent implements AfterViewInit {
   department: Department[] = [
     {name:"Grading"},
     {name:"Fumigation"},
-    {name:"Hand Peeling"},
     {name:"Packing"},
 
   ]
@@ -55,7 +54,7 @@ export class StockCategoryComponent implements AfterViewInit {
   openDialog() {
     const dialogRef = this.dialog.open(StockComponent, {
       height: '90%',
-      width: '90%',
+      width: '50%',
       
     });
 

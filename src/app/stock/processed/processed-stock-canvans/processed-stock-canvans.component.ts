@@ -2,29 +2,31 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ChartDataset } from 'chart.js';
 import { ToastrService } from 'ngx-toastr';
 import { SharedPayload } from 'src/app/shared/shared.payload';
-import { StockService } from '../service/stock.service';
-import { StockPayload } from '../white-stock/stock.payload';
+import { StockService } from '../../service/stock.service';
+import { StockProcessedRcn } from '../stock.processed.rcn';
 
 export class BarCharDataObject {
   data!: Array<number>
   label!: String
 }
 
+
 @Component({
-  selector: 'app-canvas-record',
-  templateUrl: './canvas-record.component.html',
-  styleUrls: ['./canvas-record.component.css']
+  selector: 'app-processed-stock-canvans',
+  templateUrl: './processed-stock-canvans.component.html',
+  styleUrls: ['./processed-stock-canvans.component.css']
 })
-export class CanvasRecordComponent implements OnInit {
+export class ProcessedStockCanvansComponent implements OnInit {
 
   public barChartLabels: Array<String> = []
   public barChartDataList!: ChartDataset[]
   dataWeightWholes: Array<number> = []
   dataWeightPieces: Array<number> = []
-  stockPayloadList:Array<StockPayload>=[]
+  dataWeightProcessed: Array<number> = []
+  stockPayloadList:Array<StockProcessedRcn>=[]
 
   @Input() department!:String
-  @Output() stockPayloadListEmmitter = new EventEmitter<Array<StockPayload>>();
+  @Output() stockPayloadListEmmitter = new EventEmitter<Array<StockProcessedRcn>>();
 
 
   constructor(private stockService: StockService,
@@ -42,7 +44,7 @@ export class CanvasRecordComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.stockService.dailyWhiteStockRecordingData(this.department).subscribe(data => {
+    this.stockService.dailyProcessedStockRecordingData(this.department).subscribe(data => {
       if (data) {
         this.stockPayloadListEmmitter.emit(data)
         let i=0
@@ -52,11 +54,15 @@ export class CanvasRecordComponent implements OnInit {
           }
           this.dataWeightWholes.push(stockData.totalWholes)
           this.dataWeightPieces.push(stockData.totalPieces)
+          this.dataWeightProcessed.push(stockData.totalProcessed)
           this.barChartLabels.push(this.sharedPayload.formatDateTime(stockData.createdDate))
           i++
         }
 
         this.barChartDataList = [
+          {
+            data:this.dataWeightProcessed,label:'Total Processed'
+          },
           {
             data: this.dataWeightWholes, label: 'Total Wholes',
           },

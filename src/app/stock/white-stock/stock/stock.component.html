@@ -1,0 +1,42 @@
+<div class="container align-items-center">
+
+    <div class="card ">
+        <article class="card-body">
+            <h4 class="card-title mt-1">Daily Record</h4>
+            <form [formGroup]="stockRecordingForm" (ngSubmit)="saveStock()" class="form">
+                
+                <div class="form-group mt-2">
+                    <label>Department</label>
+                    <select class="form-control" formControlName="department" [ngStyle]="{'border': f['department'].invalid && f['department'].touched ? 'red 1px solid':'grey 1px solid'}"  placeholder="Grading" type="">
+                        <option value="Grading">Grading</option>
+                        <option value="Fumigation">Fumigation</option>
+                        <option value="Packing">Packing</option>
+                    </select>
+                </div> <!-- form-group// -->
+
+                <div class="form-group mt-2">
+                    <label>LOT</label>
+                    <select class="form-control" formControlName="lot" [ngStyle]="{'border': f['lot'].invalid && f['lot'].touched ? 'red 1px solid':'grey 1px solid'}"  placeholder="USA" type="">
+                        <option value="USA">USA</option>
+                        <option value="JABARI">JABARI</option>
+                        <option value="CPB">CPB</option>
+                    </select>
+                </div> <!-- form-group// -->
+
+                <div class="form-group mt-2">
+                    <label>Total wholes (KG)</label>
+                    <input class="form-control" [ngStyle]="{'border': f['totalWholes'].invalid && f['totalWholes'].touched ? 'red 1px solid':'grey 1px solid'}" formControlName="totalWholes" placeholder="28.9" type="number">
+                </div> <!-- form-group// -->
+
+                <div class="form-group mt-2">
+                    <label>Total pieces (KG)</label>
+                    <input class="form-control" formControlName="totalPieces" [ngStyle]="{'border': f['totalPieces'].invalid && f['totalPieces'].touched ? 'red 1px solid':'grey 1px solid'}" formControlName="totalPieces" placeholder="20.6" type="number">
+                    
+                </div> <!-- form-group// -->
+
+                <input type="submit" class="btn mt-3 w-50" style="background-color: crimson;" value="SAVE">
+                <!-- form-group// -->
+            </form>
+        </article>
+    </div> <!-- card.// -->
+</div>
