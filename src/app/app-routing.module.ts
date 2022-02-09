@@ -6,7 +6,6 @@ import { AuthGuard } from './auth/guard/auth.guard';
 import { LoginComponent } from './auth/login/login.component';
 import { ProcessedStockCategoryComponent } from './stock/processed/processed-stock-category/processed-stock-category.component';
 import { ProcessedStockRecordComponent } from './stock/processed/processed-stock-record/processed-stock-record.component';
-import { RcnStockCategoryRecordComponent } from './stock/rcn-stock/rcn-stock-category-record/rcn-stock-category-record.component';
 import { RcnStockCategoryComponent } from './stock/rcn-stock/rcn-stock-category/rcn-stock-category.component';
 import { RcnStockRecordComponent } from './stock/rcn-stock/rcn-stock-record/rcn-stock-record.component';
 import { StockDashboardComponent } from './stock/stock-dashboard/stock-dashboard.component';

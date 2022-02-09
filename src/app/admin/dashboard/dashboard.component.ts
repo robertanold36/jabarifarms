@@ -3,6 +3,7 @@ import { faChartBar } from '@fortawesome/free-solid-svg-icons';
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
+import { faWarehouse } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -14,6 +15,7 @@ import { faMoneyBill } from '@fortawesome/free-solid-svg-icons';
 })
 export class DashboardComponent implements OnInit {
 
+  faWarehouse=faWarehouse
   faChartBar = faChartBar;
   faChevronRight = faChevronRight;
   faUser = faUser
