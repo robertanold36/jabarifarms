@@ -14,6 +14,7 @@ export class AddVendorComponent implements OnInit {
 
   addVendorForm!: FormGroup;
   vendorPayload!: VendorPayload;
+  isLoading=false
 
   constructor(private toastr: ToastrService, private vendorService: VendorService,public dialogRef:MatDialogRef<AddVendorComponent>) {
     this.vendorPayload = {
@@ -31,6 +32,7 @@ export class AddVendorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.addVendorForm = new FormGroup({
       name: new FormControl('', Validators.required),
       phoneNumber: new FormControl('', Validators.required),
@@ -55,12 +57,15 @@ export class AddVendorComponent implements OnInit {
       this.toastr.error("Please fill the fields")
 
     } else {
+      this.isLoading=true
       this.vendorService.registerVendor(this.vendorPayload).subscribe(data => {
         if (data) {
+          this.isLoading=false
           this.toastr.success('Vendor registered successfully')
           this.dialogRef.close()
         }
       }, err => {
+        this.isLoading=false
         if (err.status == 409) {
           this.toastr.error('Vendor with number ' + this.f['idNumber'].value + " Exist")
           this.dialogRef.close()

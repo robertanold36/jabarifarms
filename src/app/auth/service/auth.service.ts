@@ -13,7 +13,7 @@ export class AuthService {
   @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
   @Output() username: EventEmitter<String> = new EventEmitter();
 
-  url:String="http://localhost:8080/jabari/auth"
+  url:String="https://jabari-farms.herokuapp.com/jabari/auth"
 
   constructor(private http: HttpClient,
     private localStorage: LocalStorageService) { }

@@ -1,11 +1,12 @@
-<div  class="w-100 m-md-auto align-items-center">
-    <canvas baseChart 
-            [datasets]="barChartDataList"
-            [labels]="barChartLabels"
-            [options]="barChartOptions"
-            [legend]="barChartLegend"
-            [type]="'bar'"
-           >
+<div>
+
+  <div class="w-50 h-50" style="display: flex; justify-content: center;" >
+    <canvas baseChart [data]="pieChartData" [type]="pieChartType" [options]="pieChartOptions">
     </canvas>
-    
   </div>
+  <h3 style="font-family: Raleway;" class="mt-2 mb-2">Daily Data Record</h3>
+  <canvas baseChart [datasets]="barChartDataList" [labels]="barChartLabels" [options]="barChartOptions"
+    [legend]="barChartLegend" [type]="'bar'">
+  </canvas>
+
+</div>

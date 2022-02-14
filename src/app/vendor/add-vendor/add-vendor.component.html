@@ -3,7 +3,7 @@
 
     <div class="card mb-5">
         <article class="card-body">
-            <h6 class="card-title mb-4 mt-1">Make Quick Registration</h6>
+            <h3 class="card-title mb-4 mt-1">Make Quick Registration</h3>
             <form [formGroup]="addVendorForm" (ngSubmit)="addVendor()" class="form">
                 <div class="form-group">
                     <label>Full name</label>
@@ -11,7 +11,8 @@
                 </div> <!-- form-group// -->
                 <div class="form-group  mt-3">
                     <label>Phone number</label>
-                    <input formControlName="phoneNumber" class="form-control" placeholder="+255 650 555 789" type="text">
+                    <input formControlName="phoneNumber" class="form-control" placeholder="+255 650 555 789"
+                        type="text">
                 </div> <!-- form-group// -->
 
                 <div class="form-group  mt-3">
@@ -21,7 +22,8 @@
 
                 <div class="form-group mt-3">
                     <label>Address</label>
-                    <input class="form-control" formControlName="address" placeholder="Dar es salaam,Tanzania" type="text">
+                    <input class="form-control" formControlName="address" placeholder="Dar es salaam,Tanzania"
+                        type="text">
                 </div> <!-- form-group// -->
 
                 <div class="form-group  mt-3">
@@ -29,7 +31,8 @@
                     <input id="requestdate" type="date" class="form-control" formControlName="dob" />
                 </div> <!-- form-group// -->
 
-                <input type="submit" class="btn mt-3 w-50" style="background-color: crimson;" value="SAVE">
+                <input type="submit" [disabled]="isLoading" class="btn mt-3 w-50" style="background-color: crimson;"
+                    [value]="isLoading?'Waiting....':'SAVE'">
                 <!-- form-group// -->
             </form>
         </article>

@@ -16,6 +16,7 @@ export class VendorContractComponent implements OnInit {
 
   vendorContractForm!: FormGroup
   vendorContractPayload!: VendorContractPayload
+  isLoading=false
 
   constructor(private toastr: ToastrService,
     private vendorService: VendorService,
@@ -58,6 +59,7 @@ export class VendorContractComponent implements OnInit {
     if (this.vendorContractForm.invalid) {
       this.toastr.error('Please fill all the field')
     } else {
+      this.isLoading=true
       this.vendorContractPayload.amount = this.vendorContractForm.get('amount')?.value;
       this.vendorContractPayload.amountPerKG = this.vendorContractForm.get('amountPerKG')?.value;
       this.vendorContractPayload.vendorId = this.data.Id
@@ -68,10 +70,12 @@ export class VendorContractComponent implements OnInit {
 
       this.vendorService.saveContract(this.vendorContractPayload).subscribe(data => {
         if (data) {
+          this.isLoading=false
           this.toastr.success('Successfully saved the contract')
           this.dialogRef.close();
         }
       }, err => {
+        this.isLoading=false
         if (err.status == 403) {
           this.toastr.error('Session expired please login again')
           this.router.navigateByUrl('/')

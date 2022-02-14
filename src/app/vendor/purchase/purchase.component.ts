@@ -15,7 +15,8 @@ import { VendorContractRecord } from '../vendor-contract-record';
 export class PurchaseComponent implements OnInit {
 
   purchaseFormGroup!: FormGroup
-  vendorRecord!:VendorContractRecord
+  vendorRecord!: VendorContractRecord
+  isLoading=false
 
   constructor(private toastr: ToastrService,
     private vendorService: VendorService,
@@ -55,6 +56,7 @@ export class PurchaseComponent implements OnInit {
     if (this.purchaseFormGroup.invalid) {
       this.toastr.error('Please fill all the field')
     } else {
+      this.isLoading=true
       this.vendorRecord.moisturePercent = this.purchaseFormGroup.get('moisturePercent')?.value
       this.vendorRecord.totalWholes = this.purchaseFormGroup.get('totalWholes')?.value
       this.vendorRecord.totalPieces = this.purchaseFormGroup.get('totalPieces')?.value
@@ -64,10 +66,12 @@ export class PurchaseComponent implements OnInit {
 
       this.vendorService.saveContractRecord(this.vendorRecord).subscribe(data => {
         if (data) {
+          this.isLoading=false
           this.toastr.success('Record saved successully')
           this.dialogRef.close()
         }
       }, err => {
+        this.isLoading=false
         this.toastr.error('Fail to add the record')
       })
     }

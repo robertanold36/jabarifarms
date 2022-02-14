@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   loginRequestPayload!: LoginRequestPayload;
   registerSuccessMessage!: string;
   isError!: boolean;
+  isLoading=false
 
   constructor(private authService: AuthService, private router: Router, private toastr: ToastrService) {
     this.loginRequestPayload = {
@@ -47,13 +48,16 @@ export class LoginComponent implements OnInit {
       this.toastr.error("Please fill the fields")
     
     } else {
+      this.isLoading=true
       this.authService.login(this.loginRequestPayload).subscribe(data => {
         if (data) {
+          this.isLoading=false
           this.isError = false;
           this.router.navigateByUrl('/');
           this.toastr.success('login succesfully');
         }
       }, err => {
+        this.isLoading=false
         if (err.status==404 || err.status==403) {
           this.isError = true;
           this.toastr.error('Username or password is incorrect');

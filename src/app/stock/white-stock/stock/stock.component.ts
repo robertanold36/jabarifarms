@@ -13,7 +13,8 @@ import { StockPayload } from '../stock.payload';
 export class StockComponent implements OnInit {
 
   stockRecordingForm!: FormGroup
-  stockPayload!:StockPayload
+  stockPayload!: StockPayload
+  isLoading=false
 
   constructor(private toastr: ToastrService,
     private stockService: StockService,
@@ -26,7 +27,8 @@ export class StockComponent implements OnInit {
       department: '',
       totalPieces: 0,
       totalWholes: 0,
-      lot:''
+      lot: '',
+      totalStock:0
     }
   }
   
@@ -37,7 +39,8 @@ export class StockComponent implements OnInit {
       totalPieces: new FormControl('', Validators.required),
       totalWholes: new FormControl('', Validators.required),
       department: new FormControl('', Validators.required),
-      lot:new FormControl('',Validators.required)
+      lot: new FormControl('', Validators.required),
+      totalStock: new FormControl('',Validators.required)
 
     })
   }
@@ -52,18 +55,22 @@ export class StockComponent implements OnInit {
       this.toastr.error('Please fill all the field')
 
     } else {
-
+      this.isLoading=true
       this.stockPayload.department = this.stockRecordingForm.get('department')?.value
       this.stockPayload.totalWholes=this.stockRecordingForm.get('totalWholes')?.value
       this.stockPayload.totalPieces = this.stockRecordingForm.get('totalPieces')?.value
-      this.stockPayload.lot=this.stockRecordingForm.get('lot')?.value
+      this.stockPayload.lot = this.stockRecordingForm.get('lot')?.value
+      this.stockPayload.totalStock = this.stockRecordingForm.get('totalStock')?.value
+
 
       this.stockService.dailyWhiteStockRecording(this.stockPayload).subscribe(data => {
         if (data) {
+          this.isLoading=false
           this.toastr.success('Successfully record the information')
           this.dialogRef.close();
         }
       }, err => {
+        this.isLoading=false
         if (err.status == 404) {
           this.toastr.error('Department entered not found')
         } else {

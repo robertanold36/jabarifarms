@@ -90,8 +90,8 @@ export class VendorContractListComponent implements AfterViewInit {
   openDialog() {
     const dialogRef = this.dialog.open(VendorContractComponent, {
       data:{Id:this.vendorId},
-      height: '90%',
-      width: '60%',
+      height: 'wrap',
+      width: '50%',
       
     });
 

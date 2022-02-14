@@ -11,7 +11,7 @@ import { StockPayload } from '../white-stock/stock.payload';
 })
 export class StockService {
 
-  url: String = "http://localhost:8080/jabari/api/manage"
+  url: String = "https://jabari-farms.herokuapp.com/jabari/api/manage"
 
 
   constructor(private httpClient: HttpClient) { }

@@ -18,11 +18,22 @@ import { VendorPayload } from '../vendor-payload';
   styleUrls: ['./vendor-list.component.css']
 })
 export class VendorListComponent implements OnInit {
-  displayedColumns: string[] = ['vendorId', 'name', 'phoneNumber', 'registrationNumber','Record','Action'];
+  displayedColumns: string[] = ['vendorId', 'name', 'phoneNumber', 'registrationNumber','Record','Status'];
   dataSource!: MatTableDataSource<VendorPayload>
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+
+  public currencyFormatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'TZS',
+  
+    // These options are needed to round to whole numbers if that's what you want.
+    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+
+
 
 
   constructor(public dialog: MatDialog,
@@ -59,7 +70,7 @@ export class VendorListComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(AddVendorComponent, {
-      height: '90%',
+      height: 'wrap',
       width:'50%'
     });
 
@@ -74,6 +85,10 @@ export class VendorListComponent implements OnInit {
     this.localStorage.store('name-contract', vendorPayload.name);
     const vendorId=vendorPayload.vendorId
     this.router.navigate(['vendor-contract-list',vendorId])
+  }
+
+  formatCommision(commission: number) {
+    return this.currencyFormatter.format(commission)
   }
 }
 

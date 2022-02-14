@@ -4,8 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { ProcessedStockComponent } from '../processed/processed-stock/processed-stock.component';
-import { BoilingStockComponent } from '../rcn-stock/boiling-stock/boiling-stock.component';
+import { ToastrService } from 'ngx-toastr';
 import { Department } from '../white-stock/stock-category/stock-category.component';
 import { StockComponent } from '../white-stock/stock/stock.component';
 
@@ -30,7 +29,7 @@ export class StockDashboardComponent implements AfterViewInit {
 
   ]
 
-  constructor(private dialog: MatDialog, private router: Router) {
+  constructor(private dialog: MatDialog, private router: Router,private toatr:ToastrService) {
     this.dataSource = new MatTableDataSource(this.department)
   }
   ngAfterViewInit(): void {
@@ -57,11 +56,12 @@ export class StockDashboardComponent implements AfterViewInit {
       
     } else if (name == "Processed") {
 
-      this.router.navigate(['processed-stock-category'])
-
+      //this.router.navigate(['processed-stock-category'])
+      this.toatr.info('Coming soon..')
     } else {
 
-      this.router.navigate(['rcn-stock-category'])
+      this.toatr.info('Coming soon..')
+      //this.router.navigate(['rcn-stock-category'])
 
     }
 
@@ -71,7 +71,7 @@ export class StockDashboardComponent implements AfterViewInit {
     if (name == "White Stock") {
 
       const dialogRef = this.dialog.open(StockComponent, {
-        height: '90%',
+        height: 'wrap',
         width: '50%',
 
       });
@@ -79,26 +79,30 @@ export class StockDashboardComponent implements AfterViewInit {
       dialogRef.afterClosed().subscribe(result => {
         this.ngAfterViewInit()
       })
-    } else if (name == "Processed") {
-      const dialogRef = this.dialog.open(ProcessedStockComponent, {
-        height: '90%',
-        width: '50%',
+    // } else if (name == "Processed") {
+    //   const dialogRef = this.dialog.open(ProcessedStockComponent, {
+    //     height: 'wrap',
+    //     width: '50%',
 
-      });
+    //   });
 
-      dialogRef.afterClosed().subscribe(result => {
-        this.ngAfterViewInit()
-      })
+    //   dialogRef.afterClosed().subscribe(result => {
+    //     this.ngAfterViewInit()
+    //   })
+    this.toatr.info('Coming soon..')
+
     } else {
-      const dialogRef = this.dialog.open(BoilingStockComponent, {
-        
-        width: '50%',
+      // const dialogRef = this.dialog.open(BoilingStockComponent, {
+      //   height:'wrap',
+      //   width: '50%',
 
-      });
+      // });
 
-      dialogRef.afterClosed().subscribe(result => {
-        this.ngAfterViewInit()
-      })
+      // dialogRef.afterClosed().subscribe(result => {
+      //   this.ngAfterViewInit()
+      // })
+      this.toatr.info('Coming soon..')
+
     }
 
   }

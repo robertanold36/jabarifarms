@@ -2,17 +2,21 @@
 
     <div class="card">
         <article class="card-body">
-            <h6 class="card-title mb-4 mt-1">Make Quick Contract</h6>
+            <h3 class="card-title mb-4 mt-1">Make Quick Contract</h3>
             <form [formGroup]="vendorContractForm" (ngSubmit)="addContract()" class="form">
 
                 <div class="form-group mt-2">
                     <label>Amount</label>
-                    <input class="form-control" [ngStyle]="{'border': f['amount'].invalid && f['amount'].touched ? 'red 1px solid':'grey 1px solid'}" formControlName="amount" placeholder="30000" type="number">
+                    <input class="form-control"
+                        [ngStyle]="{'border': f['amount'].invalid && f['amount'].touched ? 'red 1px solid':'grey 1px solid'}"
+                        formControlName="amount" placeholder="30000" type="number">
                 </div> <!-- form-group// -->
 
                 <div class="form-group mt-2">
                     <label>Payment Method</label>
-                    <select class="form-control" formControlName="paymentMethod" [ngStyle]="{'border': f['paymentMethod'].invalid && f['paymentMethod'].touched ? 'red 1px solid':'grey 1px solid'}" formControlName="paymentMethod" type="text">
+                    <select class="form-control" formControlName="paymentMethod"
+                        [ngStyle]="{'border': f['paymentMethod'].invalid && f['paymentMethod'].touched ? 'red 1px solid':'grey 1px solid'}"
+                        formControlName="paymentMethod" type="text">
                         <option value="Cash">Cash</option>
                         <option value="Bank">Bank</option>
                     </select>
@@ -21,24 +25,30 @@
 
                 <div class="form-group mt-2">
                     <label>Amount per KG</label>
-                    <input class="form-control" formControlName="amountPerKG" [ngStyle]="{'border': f['amountPerKG'].invalid && f['amountPerKG'].touched ? 'red 1px solid':'grey 1px solid'}" formControlName="amountPerKG" placeholder="30000" type="number">
+                    <input class="form-control" formControlName="amountPerKG"
+                        [ngStyle]="{'border': f['amountPerKG'].invalid && f['amountPerKG'].touched ? 'red 1px solid':'grey 1px solid'}"
+                        formControlName="amountPerKG" placeholder="30000" type="number">
                 </div> <!-- form-group// -->
 
                 <div class="form-group mt-2">
                     <label>Commission Amount per KG</label>
-                    <input class="form-control" formControlName="commissionAmountPerkG" [ngStyle]="{'border': f['commissionAmountPerKG'].invalid && f['commissionAmountPerKG'].touched ? 'red 1px solid':'grey 1px solid'}" formControlName="commissionAmountPerKG" placeholder="300" type="number">
+                    <input class="form-control" formControlName="commissionAmountPerkG"
+                        [ngStyle]="{'border': f['commissionAmountPerKG'].invalid && f['commissionAmountPerKG'].touched ? 'red 1px solid':'grey 1px solid'}"
+                        formControlName="commissionAmountPerKG" placeholder="300" type="number">
                 </div> <!-- form-group// -->
 
                 <div class="form-group mt-2">
                     <label>Category</label>
-                    <select class="form-control" formControlName="category" [ngStyle]="{'border': f['category'].invalid && f['category'].touched ? 'red 1px solid':'grey 1px solid'}" formControlName="category" placeholder="30000" type="">
+                    <select class="form-control" formControlName="category"
+                        [ngStyle]="{'border': f['category'].invalid && f['category'].touched ? 'red 1px solid':'grey 1px solid'}"
+                        formControlName="category" placeholder="30000" type="">
                         <option value="white">White cashew nut</option>
                         <option value="semi">Semi processed Cashew nut</option>
-                        <option value="both">Both</option>
                     </select>
                 </div> <!-- form-group// -->
 
-                <input type="submit" class="btn mt-3 w-50" style="background-color: crimson;" value="PAY">
+                <input type="submit" [disabled]="isLoading" class="btn mt-3 w-50" style="background-color: crimson;"
+                [value]="isLoading?'Waiting....':'PAY'">
                 <!-- form-group// -->
             </form>
         </article>

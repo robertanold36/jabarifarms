@@ -20,21 +20,32 @@
                         <option value="USA">USA</option>
                         <option value="JABARI">JABARI</option>
                         <option value="CPB">CPB</option>
+                        <option value="CMA2">CMA2</option>
+                        <option value="BANDAR">BANDAR</option>
+                        <option value="AFRICA CASHEW">AFRICA CASHEW</option>
+                        
                     </select>
                 </div> <!-- form-group// -->
 
+                
                 <div class="form-group mt-2">
-                    <label>Total wholes (KG)</label>
+                    <label>Total Stock(Arrival & opening) (Kg)</label>
+                    <input class="form-control" [ngStyle]="{'border': f['totalWholes'].invalid && f['totalWholes'].touched ? 'red 1px solid':'grey 1px solid'}" formControlName="totalStock" placeholder="28.9" type="number">
+                </div> <!-- form-group// -->
+
+                <div class="form-group mt-2">
+                    <label>Total wholes (Kg)</label>
                     <input class="form-control" [ngStyle]="{'border': f['totalWholes'].invalid && f['totalWholes'].touched ? 'red 1px solid':'grey 1px solid'}" formControlName="totalWholes" placeholder="28.9" type="number">
                 </div> <!-- form-group// -->
 
                 <div class="form-group mt-2">
-                    <label>Total pieces (KG)</label>
+                    <label>Total pieces (Kg)</label>
                     <input class="form-control" formControlName="totalPieces" [ngStyle]="{'border': f['totalPieces'].invalid && f['totalPieces'].touched ? 'red 1px solid':'grey 1px solid'}" formControlName="totalPieces" placeholder="20.6" type="number">
                     
                 </div> <!-- form-group// -->
 
-                <input type="submit" class="btn mt-3 w-50" style="background-color: crimson;" value="SAVE">
+                <input type="submit"[disabled]="isLoading" class="btn mt-3 w-50" style="background-color: crimson;"
+                [value]="isLoading?'Waiting....':'SAVE'">
                 <!-- form-group// -->
             </form>
         </article>

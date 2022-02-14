@@ -5,4 +5,5 @@ export interface StockPayload{
     createdDate: number;
     department: String;
     lot: String;
+    totalStock: number;
 }

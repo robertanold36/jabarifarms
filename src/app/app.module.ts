@@ -48,6 +48,10 @@ import { ProcessedStockCategoryRecordComponent } from './stock/processed/process
 import { ProcessedStockCanvansComponent } from './stock/processed/processed-stock-canvans/processed-stock-canvans.component';
 import { RcnStockCanvasComponent } from './stock/rcn-stock/rcn-stock-canvas/rcn-stock-canvas.component';
 import { RcnStockCategoryRecordComponent } from './stock/rcn-stock/rcn-stock-category-record/rcn-stock-category-record.component';
+import { AdminCanvasComponent } from './admin/admin-canvas/admin-canvas.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -78,7 +82,9 @@ import { RcnStockCategoryRecordComponent } from './stock/rcn-stock/rcn-stock-cat
     ProcessedStockCategoryRecordComponent,
     ProcessedStockCanvansComponent,
     RcnStockCanvasComponent,
-    RcnStockCategoryRecordComponent
+    RcnStockCategoryRecordComponent,
+    AdminCanvasComponent,
+    SpinnerComponent
   ],
 
   imports: [
@@ -102,7 +108,8 @@ import { RcnStockCategoryRecordComponent } from './stock/rcn-stock/rcn-stock-cat
     MatButtonModule,
     MatDatepickerModule,
     NgChartsModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

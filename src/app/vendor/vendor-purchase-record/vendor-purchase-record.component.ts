@@ -38,7 +38,8 @@ export class VendorPurchaseRecordComponent implements AfterViewInit {
   locale = 'en-US';
   name!: String;
   registrationNumber!: String
-  contractId!:number
+  contractId!: number
+  totalWeight!:number
 
 
   public formatDateTime(date: number): String {
@@ -71,7 +72,12 @@ export class VendorPurchaseRecordComponent implements AfterViewInit {
         this.dataSource = new MatTableDataSource<VendorContractRecord>(data)
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort
-        this.totalPrice=this.currencyFormatter.format(this.getSum(data))
+        this.totalPrice = this.currencyFormatter.format(this.getSum(data))
+        let totalWeightKG=0
+        for (let vendorRecord of data) {
+          totalWeightKG+=(vendorRecord.totalPieces+vendorRecord.totalWholes)
+        }
+        this.totalWeight=totalWeightKG
       }
     }, err => {
       this.toastr.error('There problem while getting content')
@@ -97,8 +103,8 @@ export class VendorPurchaseRecordComponent implements AfterViewInit {
   openDialog() {
     const dialogRef = this.dialog.open(PurchaseComponent, {
       data:{Id:this.contractId},
-      height: '90%',
-      width: '60%',
+      height: 'wrap',
+      width: '50%',
       
     });
 
