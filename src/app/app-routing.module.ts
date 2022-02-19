@@ -15,6 +15,7 @@ import { AddVendorComponent } from './vendor/add-vendor/add-vendor.component';
 import { VendorContractListComponent } from './vendor/vendor-contract-list/vendor-contract-list.component';
 import { VendorListComponent } from './vendor/vendor-list/vendor-list.component';
 import { VendorPurchaseRecordComponent } from './vendor/vendor-purchase-record/vendor-purchase-record.component';
+import { VendorStockRecordComponent } from './vendor/vendor-stock-record/vendor-stock-record.component';
 
 const routes: Routes = [
   {
@@ -39,31 +40,35 @@ const routes: Routes = [
     path: 'vendor-contract-list/:vendorId', component: VendorContractListComponent, canActivate: [AuthGuard]
   },
   {
-  path:'contract-record/:contractId',component:VendorPurchaseRecordComponent,canActivate:[AuthGuard]
+    path: 'contract-record/:contractId', component: VendorPurchaseRecordComponent, canActivate: [AuthGuard]
   },
   {
-    path:'stock',component:StockDashboardComponent,canActivate:[AuthGuard]
+    path: 'stock', component: StockDashboardComponent, canActivate: [AuthGuard]
   },
   {
-    path:'white-stock-category',component:StockCategoryComponent,canActivate:[AuthGuard]
+    path: 'white-stock-category', component: StockCategoryComponent, canActivate: [AuthGuard]
   },
   {
-    path:'processed-stock-category',component:ProcessedStockCategoryComponent,canActivate:[AuthGuard]
+    path: 'processed-stock-category', component: ProcessedStockCategoryComponent, canActivate: [AuthGuard]
   },
   {
-    path:'rcn-stock-category',component:RcnStockCategoryComponent,canActivate:[AuthGuard]
-  },
-  
-  {
-    path:'processed-stock-record/:name',component:ProcessedStockRecordComponent,canActivate:[AuthGuard]
+    path: 'rcn-stock-category', component: RcnStockCategoryComponent, canActivate: [AuthGuard]
   },
 
   {
-    path:'rcn-stock-record/:name',component:RcnStockRecordComponent,canActivate:[AuthGuard]
+    path: 'processed-stock-record/:name', component: ProcessedStockRecordComponent, canActivate: [AuthGuard]
   },
 
   {
-    path:'stock-record/:department',component:StockRecordComponent,canActivate:[AuthGuard]
+    path: 'rcn-stock-record/:name', component: RcnStockRecordComponent, canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'stock-record/:department', component: StockRecordComponent, canActivate: [AuthGuard]
+  }
+  ,
+  {
+    path: 'vendor-record-2021', component: VendorStockRecordComponent, canActivate: [AuthGuard]
   }
 ];
 

@@ -5,6 +5,7 @@ import { SuccessfullyDto } from '../successfully-dto';
 import { VendorContractPayload } from '../vendor-contract-payload';
 import { VendorContractRecord } from '../vendor-contract-record';
 import { VendorPayload } from '../vendor-payload';
+import { VendorStockRecordPayload } from '../vendor-stock-record/vendor-stock-record.payload';
 
 @Injectable({
   providedIn: 'root'
@@ -24,10 +25,6 @@ export class VendorService {
     return this.httpClient.get<Array<VendorPayload>>(this.url + "/get/all/vendors");
   }
 
-  //to be done
-  deleteVendor(vendorId:String): Observable<SuccessfullyDto>{
-    return this.httpClient.delete<SuccessfullyDto>(this.url+"/delete/"+vendorId)
-  }
 
   saveContract(vendorContractPayload: VendorContractPayload): Observable<SuccessfullyDto>{
     return this.httpClient.post<SuccessfullyDto>(this.url+"/save/contract",vendorContractPayload)
@@ -50,9 +47,10 @@ export class VendorService {
     return this.httpClient.get<Array<VendorContractRecord>>(this.url + "/get/all/contracts/record/"+contractId);
   }
 
-  //to be done
-  getAllContractsRecords(): Observable<Array<VendorContractRecord>>{
-    return this.httpClient.get<Array<VendorContractRecord>>(this.url + "/get/all/contracts/record");
+  getAllVendorRecords2021(): Observable<Array<VendorStockRecordPayload>>{
+    return this.httpClient.get<Array<VendorStockRecordPayload>>(this.url + "/get/vendor/record/2021");
   }
+
+
 
 }

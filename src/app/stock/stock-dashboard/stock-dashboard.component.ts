@@ -79,7 +79,7 @@ export class StockDashboardComponent implements AfterViewInit {
       dialogRef.afterClosed().subscribe(result => {
         this.ngAfterViewInit()
       })
-    // } else if (name == "Processed") {
+     } else if (name == "Processed") {
     //   const dialogRef = this.dialog.open(ProcessedStockComponent, {
     //     height: 'wrap',
     //     width: '50%',

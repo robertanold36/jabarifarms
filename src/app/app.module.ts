@@ -51,6 +51,9 @@ import { RcnStockCategoryRecordComponent } from './stock/rcn-stock/rcn-stock-cat
 import { AdminCanvasComponent } from './admin/admin-canvas/admin-canvas.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { VendorStockRecordComponent } from './vendor/vendor-stock-record/vendor-stock-record.component';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+
 
 
 
@@ -84,7 +87,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     RcnStockCanvasComponent,
     RcnStockCategoryRecordComponent,
     AdminCanvasComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    VendorStockRecordComponent
   ],
 
   imports: [
@@ -109,7 +113,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     MatDatepickerModule,
     NgChartsModule,
     MatSlideToggleModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ClipboardModule
   ],
   providers: [
     {
