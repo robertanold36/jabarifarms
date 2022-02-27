@@ -46,7 +46,7 @@ export class VendorContractListComponent implements AfterViewInit {
 
   formatDateTime(date: number): String {
 
-    return formatDate(new Date(this.getTimeInMills(date) * 1000), this.format, this.locale)
+    return formatDate(new Date(this.getTimeInMills(date)), this.format, this.locale)
   }
 
   getTimeInMills(date: number) {

@@ -26,7 +26,9 @@ export class AddVendorComponent implements OnInit {
       createdDate: new Date(),
       dateOfBirth: new Date,
       idNumber: "",
-      registrationNumber: ""
+      registrationNumber: "",
+      totalCredit: 0.0,
+      totalDebit:0.0
 
     }
   }

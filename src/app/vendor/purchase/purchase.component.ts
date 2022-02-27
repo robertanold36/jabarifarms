@@ -45,7 +45,8 @@ export class PurchaseComponent implements OnInit {
       totalPieces: new FormControl('', Validators.required),
       moisturePercent: new FormControl('', Validators.required),
       pricePerKiloPieces: new FormControl('', Validators.required),
-      pricePerKiloWholes: new FormControl('', Validators.required)
+      pricePerKiloWholes: new FormControl('', Validators.required),
+      doc: new FormControl(new Date(), Validators.required)
     })
   }
   get f() {
@@ -62,6 +63,7 @@ export class PurchaseComponent implements OnInit {
       this.vendorRecord.totalPieces = this.purchaseFormGroup.get('totalPieces')?.value
       this.vendorRecord.pricePerKiloWhole = this.purchaseFormGroup.get('pricePerKiloWholes')?.value
       this.vendorRecord.pricePerKiloPieces = this.purchaseFormGroup.get('pricePerKiloPieces')?.value
+      this.vendorRecord.createdDate = this.purchaseFormGroup.get('doc')?.value
       this.vendorRecord.vendorContractId=this.data.Id
 
       this.vendorService.saveContractRecord(this.vendorRecord).subscribe(data => {

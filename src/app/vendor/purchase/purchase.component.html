@@ -29,6 +29,11 @@
                     <input class="form-control" formControlName="pricePerKiloPieces" placeholder="3,000,000" type="number">
                 </div> <!-- form-group// -->
 
+                <div class="form-group  mt-3">
+                    <label>Date</label>
+                    <input id="requestdate" type="date" class="form-control" formControlName="doc" />
+                </div> <!-- form-group// -->
+
                 <input type="submit" [disabled]="isLoading" class="btn mt-3 w-50" style="background-color: crimson;"
                 [value]="isLoading?'Waiting....':'SAVE'">
                 <!-- form-group// -->

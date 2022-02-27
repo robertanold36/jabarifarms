@@ -8,4 +8,6 @@ export interface VendorPayload{
     idNumber: string;
     createdDate: Date;
     commission: number;
+    totalDebit: number;
+    totalCredit:number
 }

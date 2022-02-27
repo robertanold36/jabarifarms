@@ -18,8 +18,10 @@ import { VendorPayload } from '../vendor-payload';
   styleUrls: ['./vendor-list.component.css']
 })
 export class VendorListComponent implements OnInit {
-  displayedColumns: string[] = ['vendorId', 'name', 'phoneNumber', 'registrationNumber','Record','Status'];
+  displayedColumns: string[] = ['vendorId', 'name', 'phoneNumber', 'Debit','Credit','Record','Status'];
   dataSource!: MatTableDataSource<VendorPayload>
+  totalCredit!: number 
+  totalDebit!:number
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -45,7 +47,18 @@ export class VendorListComponent implements OnInit {
       if (data) {
         this.dataSource = new MatTableDataSource<VendorPayload>(data)
         this.dataSource.paginator = this.paginator;
-        this.dataSource.sort=this.sort
+        this.dataSource.sort = this.sort
+        let credit = 0
+        let debit=0
+        for (let vendor of data) {
+          credit += vendor.totalCredit
+          debit += vendor.totalDebit
+          
+        }
+
+        this.totalCredit = credit
+        this.totalDebit = debit
+        
       }
     }, err => {
       this.toastr.error('internal server problem');

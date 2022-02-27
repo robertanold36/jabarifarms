@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
+import {  ChartData, ChartType } from 'chart.js';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from '../admin.service';
 
@@ -10,6 +10,7 @@ import { AdminService } from '../admin.service';
 })
 export class AdminCanvasComponent implements OnInit {
   isLoading = false
+  totalStock: number = 0.00
 
   // Pie
   public pieChartOptions = {
@@ -17,7 +18,6 @@ export class AdminCanvasComponent implements OnInit {
     responsive: true,
 
   };
-
 
   public pieChartData!: ChartData<'pie', number[], string | string[]>
 
@@ -33,7 +33,9 @@ export class AdminCanvasComponent implements OnInit {
     this.adminService.dailyWhiteStockRecordingData().subscribe(data => {
       if (data) {
         this.isLoading = false
+        let totalData = (data.totalPieces + data.totalWholes)/1000
 
+        this.totalStock=totalData
         this.pieChartData = {
 
           labels: ['Total Wholes (Kg)', 'Total Pieces (Kg)'],
@@ -45,6 +47,7 @@ export class AdminCanvasComponent implements OnInit {
 
       }
     }, err => {
+      this.isLoading=false
       this.toastr.error('Fail to retrieve information')
     })
   }

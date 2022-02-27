@@ -47,6 +47,11 @@
                     </select>
                 </div> <!-- form-group// -->
 
+                <div class="form-group  mt-3">
+                    <label>Date</label>
+                    <input id="requestdate" type="date" class="form-control" formControlName="doc" />
+                </div> <!-- form-group// -->
+
                 <input type="submit" [disabled]="isLoading" class="btn mt-3 w-50" style="background-color: crimson;"
                 [value]="isLoading?'Waiting....':'PAY'">
                 <!-- form-group// -->

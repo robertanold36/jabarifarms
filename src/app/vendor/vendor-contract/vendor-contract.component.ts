@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ActivatedRoute, Params, Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { VendorService } from '../service/vendor.service';
 import { DialogId } from '../vendor-contract-list/vendor-contract-list.component';
@@ -45,7 +45,8 @@ export class VendorContractComponent implements OnInit {
       amountPerKG: new FormControl('', Validators.required),
       commissionAmountPerKG: new FormControl('', Validators.required),
       category: new FormControl('', Validators.required),
-      paymentMethod: new FormControl('', Validators.required)
+      paymentMethod: new FormControl('', Validators.required),
+      doc: new FormControl(new Date(), Validators.required)
 
     })
 
@@ -66,7 +67,7 @@ export class VendorContractComponent implements OnInit {
       this.vendorContractPayload.commissionAmountPerKG = this.vendorContractForm.get('commissionAmountPerKG')?.value;
       this.vendorContractPayload.category = this.vendorContractForm.get('category')?.value;
       this.vendorContractPayload.paymentMethod = this.vendorContractForm.get('paymentMethod')?.value;
-
+      this.vendorContractPayload.createdDate = this.vendorContractForm.get('doc')?.value;      
 
       this.vendorService.saveContract(this.vendorContractPayload).subscribe(data => {
         if (data) {
